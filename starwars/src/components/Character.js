@@ -14,8 +14,8 @@ const CharacterComponent = ({ character }) => {
     return (
         <Card>
             <h1>{character.name}</h1>
-            <p>{character.species}</p>
-            <p>{character.status}</p>
+            <p>Species: {character.species}</p>
+            <p>Status: {character.status}</p>
         </Card>
     )
 }
