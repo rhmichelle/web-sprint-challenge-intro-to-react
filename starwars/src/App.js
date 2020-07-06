@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import CharacterComponent from './components/Character';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-
+  const [characters, setCharacters] = useState([]);
   useEffect(() => {
     axios
       .get('https://rickandmortyapi.com/api/character')
       .then((response) => {
         console.log(response);
+        setCharacters(response.data.results);
       })
       .catch((error) => {
         console.log('Error!!', error);
@@ -23,6 +25,9 @@ const App = () => {
 
   return (
     <div className="App">
+      {characters.map(character => (
+        <CharacterComponent key={character.id} character={character} />
+      ))}
       <h1 className="Header">Characters</h1>
     </div>
   );
