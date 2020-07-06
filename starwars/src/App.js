@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import CharacterComponent from './components/Character';
+// import styled from 'styled-components';
 
 const App = () => {
+
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   const [characters, setCharacters] = useState([]);
@@ -25,10 +28,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1 className="Header">Characters</h1>
       {characters.map(character => (
         <CharacterComponent key={character.id} character={character} />
       ))}
-      <h1 className="Header">Characters</h1>
     </div>
   );
 }
