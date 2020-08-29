@@ -2,15 +2,15 @@ import React from 'react';
 
 
 const Character = props => {
-    console.log("Props", props)
-
-
+    const { character } = props;
+    console.log('Characters', character.name)
+    
     return (
         <div>
-            <h1>Name:</h1>
+           <h3>Name:{character.name}</h3>
         </div>
     )
-}
+    }
 // Write your Character component here
 
 export default Character;

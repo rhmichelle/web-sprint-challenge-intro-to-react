@@ -4,14 +4,14 @@ import axios from 'axios';
 import Character from './components/Character.js'
 
 const App = () => {
-const [ people, setPeople ] = useState('');
+const [ characters, setCharacters ] = useState([]);
 
 useEffect(() => {
   axios
-    .get('https://swapi.dev/api/people')
+    .get('https://rickandmortyapi.com/api/character')
     .then((response) => {
-      // console.log('Response', response.data)
-      setPeople(response.data.results)
+      // console.log('Response', response.data.results)
+      setCharacters(response.data.results);
     })
     .catch((error) => {
       console.log('Error', error)
@@ -30,7 +30,10 @@ useEffect(() => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Character people={people}/>
+      {characters.map(character => (
+        <Character key={character.id} character={character}/>
+      ))}
+      
     </div>
   );
 }
