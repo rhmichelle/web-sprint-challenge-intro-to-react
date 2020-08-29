@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character.js';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-
-const Body = styled.body`
-  background-size: 100px;
+const FlexContainer = styled.div `
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 `
-
-
-
 
 
 const App = () => {
@@ -40,10 +38,11 @@ useEffect(() => {
   return (
       <div className="App">
         <h1 className="Header">Characters</h1>
+        <FlexContainer>
         {characters.map(character => (
           <Character key={character.id} character={character}/>
         ))}
-        
+      </FlexContainer>
       </div>
   );
 }

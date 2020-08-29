@@ -1,4 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+
+
+
+
+const MainCard = styled.div`
+  margin: 2rem;
+  border: 1px white solid;
+  padding: 1rem;
+  background-color: white;
+`
 
 
 const Character = props => {
@@ -6,10 +18,10 @@ const Character = props => {
     console.log('Characters', character)
     
     return (
-        <div>
+        <MainCard>
             <img src={character.image}></img>
            <h3>Name:{character.name}</h3>
-        </div>
+        </MainCard>
     )
     }
 // Write your Character component here
